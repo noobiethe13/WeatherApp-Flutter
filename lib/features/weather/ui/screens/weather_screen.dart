@@ -225,23 +225,25 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${weatherData.current.tempC.toStringAsFixed(1)}°C',
-                      style: TextStyle(fontSize: responsive.height25, fontWeight: FontWeight.w500, color: themeNotifier.isDarkTheme ? Colors.white : Colors.black,),
-                    ),
-                    Text(
-                      weatherData.current.condition.text,
-                      style: TextStyle(
-                        fontSize: responsive.height18,
-                        color: themeNotifier.isDarkTheme ? Colors.white : Colors.black,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${weatherData.current.tempC.toStringAsFixed(1)}°C',
+                        style: TextStyle(fontSize: responsive.height25, fontWeight: FontWeight.w500, color: themeNotifier.isDarkTheme ? Colors.white : Colors.black,),
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
-                  ],
+                      Text(
+                        weatherData.current.condition.text,
+                        style: TextStyle(
+                          fontSize: responsive.height18,
+                          color: themeNotifier.isDarkTheme ? Colors.white : Colors.black,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
+                    ],
+                  ),
                 ),
                 Image.network(
                   'https:${weatherData.current.condition.icon}',
