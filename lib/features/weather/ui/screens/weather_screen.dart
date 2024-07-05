@@ -234,7 +234,12 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
                     ),
                     Text(
                       weatherData.current.condition.text,
-                      style: TextStyle(fontSize: responsive.height18, color: themeNotifier.isDarkTheme ? Colors.white : Colors.black,),
+                      style: TextStyle(
+                        fontSize: responsive.height18,
+                        color: themeNotifier.isDarkTheme ? Colors.white : Colors.black,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
                   ],
                 ),
